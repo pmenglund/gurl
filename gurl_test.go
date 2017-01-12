@@ -8,3 +8,7 @@ func TestParseURL(t *testing.T) {
 		t.Error("oops")
 	}
 }
+
+func TestMakeRequest(t *testing.T) {
+	// TODO: implement
+}
