@@ -1,4 +1,5 @@
-# gurl
+# GURL
+[![Build Status](https://travis-ci.org/pmenglund/gurl.svg?branch=master)](https://travis-ci.org/pmenglund/gurl)
 
 A simple replacement for `curl` when you want to use it as a docker `HEALTHCHECK`
 
