@@ -8,8 +8,26 @@ A simple replacement for `curl` when you want to use it as a docker [`HEALTHCHEC
 
 In your `Dockerfile` add a `HEALTHCHECK` line with
 
-    HEALTHCHECK --interval=5m --timeout=3s CMD gurl http://localhost:8080/
+    HEALTHCHECK --interval=5m --timeout=3s CMD /gurl http://localhost:8080/
 
 If you want to check the output
 
     docker inspect --format='{{json .State.Health}}' <container name> | jq
+    {
+      "Status": "healthy",
+      "FailingStreak": 0,
+      "Log": [
+        {
+          "Start": "2017-01-24T03:31:38.301163386Z",
+          "End": "2017-01-24T03:31:38.383919716Z",
+          "ExitCode": 0,
+          "Output": "alive\n"
+        },
+        {
+          "Start": "2017-01-24T03:31:53.385446984Z",
+          "End": "2017-01-24T03:31:53.469891391Z",
+          "ExitCode": 0,
+          "Output": "alive\n"
+        }
+      ]
+    }

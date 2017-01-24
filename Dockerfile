@@ -7,7 +7,7 @@ RUN wget -q -O /gurl https://github.com/pmenglund/gurl/releases/download/pre-rel
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 RUN chmod 755 /gurl
 
-HEALTHCHECK --interval=15s --timeout=5s CMD gurl http://localhost:8080/
+HEALTHCHECK --interval=15s --timeout=5s CMD /gurl http://localhost:8080/
 
 COPY server /server
 
