@@ -12,4 +12,4 @@ In your `Dockerfile` add a `HEALTHCHECK` line with
 
 If you want to check the output
 
-    docker inspect <container>
+    docker inspect --format='{{json .State.Health}}' <container name> | jq

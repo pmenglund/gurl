@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "log"
 import "io/ioutil"
 import "net/url"
 import "os"
@@ -9,10 +10,8 @@ import "net/http"
 func parseURL(rawurl string) *url.URL {
 	u, err := url.Parse(rawurl)
 	if err != nil {
-		fmt.Printf("URL parse error %s\n", err.Error())
-		os.Exit(1)
+		log.Fatalf("URL parse error %s\n", err.Error())
 	}
-	fmt.Println("url:", u)
 	return u
 }
 
@@ -26,13 +25,11 @@ func makeRequest(parsedURL string) string {
 
 	resp, err := http.Get(parsedURL)
 	if err != nil {
-		fmt.Printf("http request error %s\n", err.Error())
-		os.Exit(1)
+		log.Fatalf("http request error %s\n", err.Error())
 	}
 
 	if resp.StatusCode != 200 {
-		fmt.Printf("return code is not 200: %d\n", resp.StatusCode)
-		os.Exit(1)
+		log.Fatalf("return code is not 200: %d\n", resp.StatusCode)
 	}
 
 	defer resp.Body.Close()
@@ -43,12 +40,10 @@ func makeRequest(parsedURL string) string {
 
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Printf("usage: %s\n", os.Args[0])
+		fmt.Printf("usage: %s <url>\n", os.Args[0])
 		os.Exit(1)
 	}
-	// rawURL = os.Args[1]
-	rawURL := "http://localhost:8080/api/v1/ping"
-	parsedURL := parseURL(rawURL)
+	parsedURL := parseURL(os.Args[1])
 
 	body := makeRequest(parsedURL.String())
 	fmt.Println(body)
