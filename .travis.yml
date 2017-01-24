@@ -8,7 +8,7 @@ before_install:
   - go get github.com/mattn/goveralls
   - go get github.com/tcnksm/ghr
 script:
-  - go test -v -covermode=count -coverprofile=coverage.out ./...
+  - go test -v -covermode=count -coverprofile=coverage.out -coverpkg=./...
   - goveralls -coverprofile=coverage.out -service travis-ci -repotoken $COVERALLS_TOKEN
 after_success:
   - gox -output "dist/{{.OS}}_{{.Arch}}_{{.Dir}}"
