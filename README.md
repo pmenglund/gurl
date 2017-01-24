@@ -10,7 +10,13 @@ In your `Dockerfile` add a `HEALTHCHECK` line with
 
     HEALTHCHECK --interval=5m --timeout=3s CMD /gurl http://localhost:8080/
 
-If you want to check the output
+Now you can use `docker ps` to see the health of the container
+
+    docker ps
+    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS                    NAMES
+    e1b2d3559cc3        gurl                "/server"                2 minutes ago       Up 2 minutes (healthy)                            romantic_leakey
+
+If you want to check the output from the health check, use:
 
     docker inspect --format='{{json .State.Health}}' <container name> | jq
     {
