@@ -2,8 +2,7 @@ language: go
 go:
   - 1.7.x
 env:
-  - "PATH=/home/travis/gopath/bin:$PATH"
-  - CGO_ENABLED=0
+  - "PATH=/home/travis/gopath/bin:$PATH" CGO_ENABLED=0
 before_install:
   - go get github.com/mitchellh/gox
   - go get github.com/mattn/goveralls
