@@ -1,11 +1,13 @@
 package main
 
-import "fmt"
-import "log"
-import "io/ioutil"
-import "net/url"
-import "os"
-import "net/http"
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
+)
 
 func parseURL(rawurl string) *url.URL {
 	u, err := url.Parse(rawurl)
