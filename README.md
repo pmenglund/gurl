@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/pmenglund/gurl.svg?branch=master)](https://travis-ci.org/pmenglund/gurl)
 [![Coverage Status](https://coveralls.io/repos/github/pmenglund/gurl/badge.svg?branch=master)](https://coveralls.io/github/pmenglund/gurl?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pmenglund/gurl)](https://goreportcard.com/report/github.com/pmenglund/gurl)
 
 # GURL
 A simple replacement for `curl` when you want to use it as a docker [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#/healthcheck) instruction.
